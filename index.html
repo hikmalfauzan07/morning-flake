@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#241C17" />
+    <title>MorningFlake — Bakery &amp; Coffee Shop</title>
+    <meta
+      name="description"
+      content="MorningFlake adalah toko roti dan kedai kopi. Pastri laminasi, roti, dan daftar kopi yang singkat, dipanggang segar setiap pagi."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23241c17'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='19' fill='%23d9a441' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E"
+    />
+
+    <!-- Typefaces: one serif for display, one sans for UI, with system fallbacks. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ================= HEADER ================= -->
+    <header class="site-header" id="top">
+      <div class="container header-inner">
+        <a
+          class="wordmark"
+          href="#top"
+          aria-label="MorningFlake, kembali ke atas"
+        >
+          <span class="wordmark__name">MorningFlake</span>
+          <span class="wordmark__sub">Bakery &amp; Coffee Shop</span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+          aria-label="Buka menu"
+        >
+          <span class="nav-toggle__bar" aria-hidden="true"></span>
+          <span class="nav-toggle__bar" aria-hidden="true"></span>
+        </button>
+
+        <nav class="main-nav" id="primary-nav" aria-label="Navigasi utama">
+          <a href="#menu">Menu</a>
+          <a href="#about">About</a>
+          <a href="#visit">Visit</a>
+          <a class="btn header-cta" href="#visit">Order for Pickup</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- ================= HERO ================= -->
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <h1>Fresh from the oven,<br />before the city wakes up.</h1>
+            <p class="lead">
+              Pastry, roti, dan pilihan kopi yang singkat, menemani awal hari.
+            </p>
+            <div class="hero-actions">
+              <a class="btn" href="#menu">Beli Sekarang</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= STATEMENT ================= -->
+      <section class="statement" aria-label="Pendekatan kami">
+        <div class="container">
+          <p>
+            Mentega, tepung, dan sedikit kesabaran.
+            <em>Itulah seluruh idenya.</em>
+          </p>
+        </div>
+      </section>
+
+      <!-- ================= MENU ================= -->
+      <section class="section" id="menu" aria-labelledby="menu-title">
+        <div class="container">
+          <header class="section-head">
+            <div>
+              <h2 id="menu-title">Apa yang ada di etalase</h2>
+            </div>
+          </header>
+
+          <!-- Hidangan andalan -->
+          <article class="featured" data-cat="pastry">
+            <div class="frame ratio-3x2 featured__media">
+              <img
+                src="https://images.unsplash.com/photo-1693483640461-267d788b6148?auto=format&fit=crop&w=1200&h=800&q=80"
+                alt="Barisan croissant yang baru dipanggang di atas loyang"
+                width="1200"
+                height="800"
+                loading="lazy"
+              />
+            </div>
+            <div class="featured__body">
+              <p class="eyebrow">Best Seller</p>
+              <div class="featured__head">
+                <h3>Butter Croissant</h3>
+                <span class="price">28</span>
+              </div>
+              <p class="featured__desc">
+                Dilipat dengan mentega kultur dan dipanggang hingga keemasan.
+                Yang pertama sebaiknya dipesan.
+              </p>
+            </div>
+          </article>
+
+          <!-- Toolbar -->
+          <div class="menu-toolbar">
+            <div class="filter" role="tablist" aria-label="Filter menu">
+              <button
+                class="filter-btn is-active"
+                type="button"
+                data-filter="all"
+              >
+                Semua
+              </button>
+              <button class="filter-btn" type="button" data-filter="pastry">
+                Pastri
+              </button>
+              <button class="filter-btn" type="button" data-filter="coffee">
+                Kopi
+              </button>
+            </div>
+          </div>
+
+          <!-- Daftar -->
+          <div class="menu-list">
+            <div class="menu-group" data-group="pastry">
+              <h3 class="menu-group-title">Pastri</h3>
+
+              <div class="menu-row" data-cat="pastry">
+                <div class="menu-text">
+                  <span class="menu-name">Pain au Chocolat</span>
+                  <span class="menu-desc"
+                    >Cokelat gelap di antara lapisan mentega.</span
+                  >
+                </div>
+                <span class="menu-price">34</span>
+              </div>
+
+              <div class="menu-row" data-cat="pastry">
+                <div class="menu-text">
+                  <span class="menu-name">Cinnamon Roll</span>
+                  <span class="menu-desc"
+                    >Lembut dan berbumbu, dengan glasir tipis.</span
+                  >
+                </div>
+                <span class="menu-price">32</span>
+              </div>
+
+              <div class="menu-row" data-cat="pastry">
+                <div class="menu-text">
+                  <span class="menu-name">Fruit Danish</span>
+                  <span class="menu-desc"
+                    >Pastri mentega dengan buah musiman.</span
+                  >
+                </div>
+                <span class="menu-price">36</span>
+              </div>
+
+              <div class="menu-row" data-cat="pastry">
+                <div class="menu-text">
+                  <span class="menu-name">Almond Financier</span>
+                  <span class="menu-desc"
+                    >Kue almond kecil dengan rasa manis yang lembut.</span
+                  >
+                </div>
+                <span class="menu-price">22</span>
+              </div>
+            </div>
+
+            <div class="menu-group" data-group="coffee">
+              <h3 class="menu-group-title">Kopi</h3>
+
+              <div class="menu-row" data-cat="coffee">
+                <div class="menu-text">
+                  <span class="menu-name">Filter Coffee</span>
+                  <span class="menu-desc"
+                    >Bersih dan cerah, diseduh sesuai pesanan.</span
+                  >
+                </div>
+                <span class="menu-price">25</span>
+              </div>
+
+              <div class="menu-row" data-cat="coffee">
+                <div class="menu-text">
+                  <span class="menu-name">Flat White</span>
+                  <span class="menu-desc"
+                    >Busa susu halus di atas dobel shot.</span
+                  >
+                </div>
+                <span class="menu-price">32</span>
+              </div>
+
+              <div class="menu-row" data-cat="coffee">
+                <div class="menu-text">
+                  <span class="menu-name">Cortado</span>
+                  <span class="menu-desc"
+                    >Espresso dan susu dengan takaran seimbang.</span
+                  >
+                </div>
+                <span class="menu-price">30</span>
+              </div>
+
+              <div class="menu-row" data-cat="coffee">
+                <div class="menu-text">
+                  <span class="menu-name">Cold Brew</span>
+                  <span class="menu-desc"
+                    >Diseduh lambat, disajikan dingin.</span
+                  >
+                </div>
+                <span class="menu-price">33</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= TENTANG KAMI ================= -->
+      <section
+        class="section about"
+        id="about"
+        aria-label="Tentang MorningFlake"
+      >
+        <div class="container">
+          <p class="eyebrow">Tentang Kami</p>
+          <p class="about-intro">
+            MorningFlake adalah toko roti dan kopi yang menghadirkan pastry
+            berlapis renyah, roti segar, dan kopi pilihan untuk menemani awal
+            harimu. Kami percaya bahwa hal sederhana, seperti aroma roti yang
+            baru dipanggang dan secangkir kopi hangat, dapat membuat pagi terasa
+            lebih istimewa. Setiap sajian kami hadirkan dengan perhatian pada
+            rasa dan kualitas, agar setiap kunjungan menjadi momen yang
+            menyenangkan.
+          </p>
+
+          <div class="about-rows">
+            <!-- Baris 1: gambar kiri, teks kanan -->
+            <article class="about-row">
+              <figure class="frame about-row__media">
+                <img
+                  src="https://images.unsplash.com/photo-1517686469429-8bdb88b9f907?auto=format&fit=crop&w=1000&h=750&q=80"
+                  alt="Tangan membentuk adonan di atas meja kayu yang ditaburi tepung"
+                  width="1000"
+                  height="750"
+                  loading="lazy"
+                />
+              </figure>
+              <div class="about-row__body">
+                <p class="eyebrow">Our Story</p>
+                <h3>Dari satu loyang, dipanggang sebelum fajar.</h3>
+                <p>
+                  Semuanya dimulai dari dapur kecil, tepung di meja, dan
+                  keinginan sederhana: memanggang roti yang layak dinantikan.
+                  Kami masih bekerja dengan cara yang sama: perlahan, dengan
+                  tangan, dan tanpa jalan pintas.
+                </p>
+                <a class="btn btn--ghost" href="#menu">View Menu</a>
+              </div>
+            </article>
+
+            <!-- Baris 2: teks kiri, gambar kanan -->
+            <article class="about-row about-row--reverse">
+              <figure class="frame about-row__media">
+                <img
+                  src="https://images.pexels.com/photos/13042721/pexels-photo-13042721.jpeg?auto=compress&cs=tinysrgb&w=1000&h=750&fit=crop"
+                  alt="Roti panggang segar di dalam keranjang di dekat tungku bata"
+                  width="1000"
+                  height="750"
+                  loading="lazy"
+                />
+              </figure>
+              <div class="about-row__body">
+                <p class="eyebrow">Giving Back</p>
+                <h3>Roti yang tersisa tetap punya tempat.</h3>
+                <p>
+                  Setiap sore, roti yang belum terjual kami bagikan ke
+                  lingkungan sekitar. Bagi kami, memanggang bukan sekadar
+                  berjualan. Ini tentang memastikan tidak ada yang terbuang.
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <!-- Hiring callout: satu pesan, bukan baris zig-zag penuh. -->
+          <div class="about-hiring">
+            <div class="about-hiring__copy">
+              <p class="eyebrow">Join Our Team</p>
+              <h3>Tumbuh bersama orang-orang yang mencintai pagi.</h3>
+              <p>
+                Kami mencari orang yang teliti dan senang bekerja dengan tangan.
+                Jika kamu menyukai awal hari, aroma mentega, dan tim yang saling
+                menjaga, kami senang berkenalan.
+              </p>
+            </div>
+            <a
+              class="btn btn--ghost"
+              href="mailto:hello@morningflake.com?subject=Lamaran%20kerja"
+              >Apply Now</a
+            >
+          </div>
+
+          <div class="about-values">
+            <div class="about-values__col">
+              <p class="eyebrow">Visi</p>
+              <p class="about-values__statement">
+                Menjadi toko roti dan kedai kopi lingkungan yang dipercaya,
+                tempat orang memulai pagi dengan sesuatu yang hangat dan dibuat
+                sungguh-sungguh.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= KUNJUNGI ================= -->
+      <section class="section visit" id="visit" aria-labelledby="visit-title">
+        <div class="container visit-grid">
+          <div class="visit-copy">
+            <h2 id="visit-title">Mampir untuk loyang pertama.</h2>
+            <p class="lead">
+              Kami kedai roti kecil, dan paling enak dikunjungi pada pagi hari.
+              Saat etalase penuh, pintu kami terbuka.
+            </p>
+            <div class="visit-contact">
+              <span>Hubungi kami</span>
+              <a href="mailto:hello@morningflake.com">hello@morningflake.com</a>
+            </div>
+            <a
+              class="btn"
+              href="mailto:hello@morningflake.com?subject=Pickup%20Order"
+              >Order for Pickup</a
+            >
+          </div>
+
+          <figure class="visit-figure">
+            <div class="frame ratio-3x2">
+              <img
+                src="https://images.unsplash.com/photo-1587241321921-91a834d6d191?auto=format&fit=crop&w=1200&h=800&q=80"
+                alt="Konter toko roti yang hangat dengan lapisan kayu"
+                width="1200"
+                height="800"
+                loading="lazy"
+              />
+            </div>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ================= NEWSLETTER ================= -->
+      <section class="newsletter" aria-labelledby="newsletter-title">
+        <div class="container">
+          <div class="newsletter-card">
+            <div class="newsletter-copy">
+              <p class="eyebrow">Dari oven</p>
+              <h2 id="newsletter-title">Satu catatan singkat tiap minggu.</h2>
+              <p>
+                Pastri musiman dan kopi baru, saat keluar dari oven. Tidak lebih
+                dari sekali seminggu.
+              </p>
+            </div>
+            <form class="news-form" onsubmit="return false;">
+              <input
+                type="email"
+                name="email"
+                placeholder="email@kamu.com"
+                aria-label="Alamat email"
+              />
+              <button type="submit" class="btn">Berlangganan</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <a class="wordmark wordmark--light" href="#top">
+            <span class="wordmark__name">MorningFlake</span>
+            <span class="wordmark__sub">Bakery &amp; Coffee Shop</span>
+          </a>
+          <p>
+            Toko roti dan kedai kopi. Dipanggang segar setiap pagi, dinikmati di
+            hari yang sama.
+          </p>
+        </div>
+
+        <nav class="footer-col" aria-label="Tautan footer">
+          <h3 class="footer-col__title">Jelajahi</h3>
+          <a href="#menu">Menu</a>
+          <a href="#about">About</a>
+          <a href="#visit">Visit</a>
+        </nav>
+
+        <div class="footer-col">
+          <h3 class="footer-col__title">Kontak</h3>
+          <a href="mailto:hello@morningflake.com">hello@morningflake.com</a>
+          <span>MorningFlake.com</span>
+        </div>
+      </div>
+
+      <div class="container footer-bottom">
+        <span>&copy; <span id="year">2026</span> MorningFlake.com</span>
+        <span>All Right Reserved.</span>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
