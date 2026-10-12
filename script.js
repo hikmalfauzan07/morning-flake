@@ -46,7 +46,7 @@
   var filterButtons = document.querySelectorAll(".filter-btn");
   var rows = document.querySelectorAll(".menu-row");
   var groups = document.querySelectorAll(".menu-group");
-  var featured = document.querySelector(".featured");
+  var featureds = document.querySelectorAll(".featured");
 
   filterButtons.forEach(function (btn) {
     btn.addEventListener("click", function () {
@@ -60,9 +60,10 @@
         row.classList.toggle("is-hidden", !match);
       });
 
-      if (featured) {
-        featured.classList.toggle("is-hidden", filter !== "all" && filter !== "pastry");
-      }
+      featureds.forEach(function (featured) {
+        var cat = featured.getAttribute("data-cat");
+        featured.classList.toggle("is-hidden", filter !== "all" && filter !== cat);
+      });
 
       groups.forEach(function (group) {
         var visible = group.querySelectorAll(".menu-row:not(.is-hidden)").length > 0;

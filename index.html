@@ -107,7 +107,7 @@
               <p class="eyebrow">Best Seller</p>
               <div class="featured__head">
                 <h3>Butter Croissant</h3>
-                <span class="price">28</span>
+                <span class="price">28K</span>
               </div>
               <p class="featured__desc">
                 Dilipat dengan mentega kultur dan dipanggang hingga keemasan.
@@ -116,112 +116,138 @@
             </div>
           </article>
 
-          <!-- Toolbar -->
-          <div class="menu-toolbar">
-            <div class="filter" role="tablist" aria-label="Filter menu">
-              <button
-                class="filter-btn is-active"
-                type="button"
-                data-filter="all"
-              >
-                Semua
-              </button>
-              <button class="filter-btn" type="button" data-filter="pastry">
-                Pastri
-              </button>
-              <button class="filter-btn" type="button" data-filter="coffee">
-                Kopi
-              </button>
+          <!-- Hidangan andalan — kopi (tampil saat filter "Kopi") -->
+          <article class="featured" data-cat="coffee">
+            <div class="frame ratio-3x2 featured__media">
+              <img
+                src="https://images.pexels.com/photos/27548811/pexels-photo-27548811.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop"
+                alt="Americano hitam disajikan dalam gelas kaca"
+                width="1200"
+                height="800"
+                loading="lazy"
+              />
             </div>
-          </div>
-
-          <!-- Daftar -->
-          <div class="menu-list">
-            <div class="menu-group" data-group="pastry">
-              <h3 class="menu-group-title">Pastri</h3>
-
-              <div class="menu-row" data-cat="pastry">
-                <div class="menu-text">
-                  <span class="menu-name">Pain au Chocolat</span>
-                  <span class="menu-desc"
-                    >Cokelat gelap di antara lapisan mentega.</span
-                  >
-                </div>
-                <span class="menu-price">34</span>
+            <div class="featured__body">
+              <p class="eyebrow">Signature</p>
+              <div class="featured__head">
+                <h3>Americano</h3>
+                <span class="price">26K</span>
               </div>
+              <p class="featured__desc">
+                Espresso dan air panas dengan rasa yang bersih dan tegas.
+                Pilihan jujur untuk memulai pagi.
+              </p>
+            </div>
+          </article>
 
-              <div class="menu-row" data-cat="pastry">
-                <div class="menu-text">
-                  <span class="menu-name">Cinnamon Roll</span>
-                  <span class="menu-desc"
-                    >Lembut dan berbumbu, dengan glasir tipis.</span
-                  >
-                </div>
-                <span class="menu-price">32</span>
-              </div>
-
-              <div class="menu-row" data-cat="pastry">
-                <div class="menu-text">
-                  <span class="menu-name">Fruit Danish</span>
-                  <span class="menu-desc"
-                    >Pastri mentega dengan buah musiman.</span
-                  >
-                </div>
-                <span class="menu-price">36</span>
-              </div>
-
-              <div class="menu-row" data-cat="pastry">
-                <div class="menu-text">
-                  <span class="menu-name">Almond Financier</span>
-                  <span class="menu-desc"
-                    >Kue almond kecil dengan rasa manis yang lembut.</span
-                  >
-                </div>
-                <span class="menu-price">22</span>
+          <div class="menu-panel">
+            <!-- Toolbar -->
+            <div class="menu-toolbar">
+              <div class="filter" role="tablist" aria-label="Filter menu">
+                <button
+                  class="filter-btn is-active"
+                  type="button"
+                  data-filter="all"
+                >
+                  Semua
+                </button>
+                <button class="filter-btn" type="button" data-filter="pastry">
+                  Pastri
+                </button>
+                <button class="filter-btn" type="button" data-filter="coffee">
+                  Kopi
+                </button>
               </div>
             </div>
 
-            <div class="menu-group" data-group="coffee">
-              <h3 class="menu-group-title">Kopi</h3>
+            <!-- Daftar -->
+            <div class="menu-list">
+              <div class="menu-group" data-group="pastry">
+                <h3 class="menu-group-title">Pastri</h3>
 
-              <div class="menu-row" data-cat="coffee">
-                <div class="menu-text">
-                  <span class="menu-name">Filter Coffee</span>
-                  <span class="menu-desc"
-                    >Bersih dan cerah, diseduh sesuai pesanan.</span
-                  >
+                <div class="menu-row" data-cat="pastry">
+                  <div class="menu-text">
+                    <span class="menu-name">Pain au Chocolat</span>
+                    <span class="menu-desc"
+                      >Cokelat gelap di antara lapisan mentega.</span
+                    >
+                  </div>
+                  <span class="menu-price">34K</span>
                 </div>
-                <span class="menu-price">25</span>
+
+                <div class="menu-row" data-cat="pastry">
+                  <div class="menu-text">
+                    <span class="menu-name">Cinnamon Roll</span>
+                    <span class="menu-desc"
+                      >Lembut dan berbumbu, dengan glasir tipis.</span
+                    >
+                  </div>
+                  <span class="menu-price">32K</span>
+                </div>
+
+                <div class="menu-row" data-cat="pastry">
+                  <div class="menu-text">
+                    <span class="menu-name">Fruit Danish</span>
+                    <span class="menu-desc"
+                      >Pastri mentega dengan buah musiman.</span
+                    >
+                  </div>
+                  <span class="menu-price">36K</span>
+                </div>
+
+                <div class="menu-row" data-cat="pastry">
+                  <div class="menu-text">
+                    <span class="menu-name">Almond Financier</span>
+                    <span class="menu-desc"
+                      >Kue almond kecil dengan rasa manis yang lembut.</span
+                    >
+                  </div>
+                  <span class="menu-price">22K</span>
+                </div>
               </div>
 
-              <div class="menu-row" data-cat="coffee">
-                <div class="menu-text">
-                  <span class="menu-name">Flat White</span>
-                  <span class="menu-desc"
-                    >Busa susu halus di atas dobel shot.</span
-                  >
-                </div>
-                <span class="menu-price">32</span>
-              </div>
+              <div class="menu-group" data-group="coffee">
+                <h3 class="menu-group-title">Kopi</h3>
 
-              <div class="menu-row" data-cat="coffee">
-                <div class="menu-text">
-                  <span class="menu-name">Cortado</span>
-                  <span class="menu-desc"
-                    >Espresso dan susu dengan takaran seimbang.</span
-                  >
+                <div class="menu-row" data-cat="coffee">
+                  <div class="menu-text">
+                    <span class="menu-name">Filter Coffee</span>
+                    <span class="menu-desc"
+                      >Bersih dan cerah, diseduh sesuai pesanan.</span
+                    >
+                  </div>
+                  <span class="menu-price">25K</span>
                 </div>
-                <span class="menu-price">30</span>
-              </div>
 
-              <div class="menu-row" data-cat="coffee">
-                <div class="menu-text">
-                  <span class="menu-name">Cold Brew</span>
-                  <span class="menu-desc"
-                    >Diseduh lambat, disajikan dingin.</span
-                  >
+                <div class="menu-row" data-cat="coffee">
+                  <div class="menu-text">
+                    <span class="menu-name">Flat White</span>
+                    <span class="menu-desc"
+                      >Busa susu halus di atas dobel shot.</span
+                    >
+                  </div>
+                  <span class="menu-price">32K</span>
                 </div>
-                <span class="menu-price">33</span>
+
+                <div class="menu-row" data-cat="coffee">
+                  <div class="menu-text">
+                    <span class="menu-name">Cortado</span>
+                    <span class="menu-desc"
+                      >Espresso dan susu dengan takaran seimbang.</span
+                    >
+                  </div>
+                  <span class="menu-price">30K</span>
+                </div>
+
+                <div class="menu-row" data-cat="coffee">
+                  <div class="menu-text">
+                    <span class="menu-name">Cold Brew</span>
+                    <span class="menu-desc"
+                      >Diseduh lambat, disajikan dingin.</span
+                    >
+                  </div>
+                  <span class="menu-price">33K</span>
+                </div>
               </div>
             </div>
           </div>

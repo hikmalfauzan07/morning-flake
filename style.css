@@ -109,6 +109,8 @@ h3 { font-size: var(--fs-h3); line-height: 1.22; letter-spacing: -0.01em; }
 
 .section { padding-block: var(--section-y); }
 
+main { overflow-x: clip; }
+
 /* ---------------------------------------------------------
    3. Shared elements
    --------------------------------------------------------- */
@@ -201,11 +203,20 @@ figcaption {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: var(--ink);
-  border-bottom: 1px solid rgba(247, 241, 230, .12);
-  transition: box-shadow .3s var(--ease);
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background-color .3s var(--ease),
+              border-color .3s var(--ease),
+              box-shadow .3s var(--ease);
 }
-.site-header.is-scrolled { box-shadow: 0 14px 32px -26px rgba(36, 28, 23, .7); }
+
+/* Scrolled down (or mobile menu open) it becomes the solid espresso bar. */
+.site-header.is-scrolled,
+.site-header:has(.nav-toggle.is-open) {
+  background: var(--ink);
+  border-bottom-color: rgba(247, 241, 230, .12);
+  box-shadow: 0 14px 32px -26px rgba(36, 28, 23, .7);
+}
 
 .header-inner {
   height: var(--header-h);
@@ -238,9 +249,14 @@ figcaption {
 .wordmark--light .wordmark__name { color: var(--cream); }
 .wordmark--light .wordmark__sub { color: rgba(247, 241, 230, .72); }
 
-/* Header sits on the dark espresso bar, so its text is light. */
-.site-header .wordmark__name { color: var(--cream); }
-.site-header .wordmark__sub { color: rgba(247, 241, 230, .72); }
+/* At the top of the page the bar blends into the bright hero, so its text is
+   dark; once scrolled onto the espresso bar the text turns light. */
+.site-header .wordmark__name { color: var(--ink); }
+.site-header .wordmark__sub { color: var(--ink-2); }
+.site-header.is-scrolled .wordmark__name,
+.site-header:has(.nav-toggle.is-open) .wordmark__name { color: var(--cream); }
+.site-header.is-scrolled .wordmark__sub,
+.site-header:has(.nav-toggle.is-open) .wordmark__sub { color: rgba(247, 241, 230, .72); }
 
 /* Mobile menu button */
 .nav-toggle {
@@ -252,21 +268,26 @@ figcaption {
   height: 44px;
   margin-left: auto;
   padding: 0;
-  border: 1px solid rgba(247, 241, 230, .3);
+  border: 1px solid rgba(36, 28, 23, .28);
   border-radius: var(--radius);
   background: transparent;
   cursor: pointer;
+  transition: border-color .3s var(--ease);
 }
 .nav-toggle__bar {
   display: block;
   width: 18px;
   height: 1.5px;
   margin-inline: auto;
-  background: var(--cream);
-  transition: transform .3s var(--ease);
+  background: var(--ink);
+  transition: transform .3s var(--ease), background-color .3s var(--ease);
 }
 .nav-toggle.is-open .nav-toggle__bar:first-child { transform: translateY(3.25px) rotate(45deg); }
 .nav-toggle.is-open .nav-toggle__bar:last-child { transform: translateY(-3.25px) rotate(-45deg); }
+.site-header.is-scrolled .nav-toggle,
+.site-header:has(.nav-toggle.is-open) .nav-toggle { border-color: rgba(247, 241, 230, .3); }
+.site-header.is-scrolled .nav-toggle__bar,
+.site-header:has(.nav-toggle.is-open) .nav-toggle__bar { background: var(--cream); }
 
 /* Primary navigation */
 .main-nav {
@@ -280,7 +301,7 @@ figcaption {
   padding-block: 4px;
   font-size: 1rem;
   font-weight: 500;
-  color: rgba(247, 241, 230, .8);
+  color: var(--ink-2);
   transition: color .2s var(--ease);
 }
 .main-nav > a:not(.header-cta)::after {
@@ -295,19 +316,27 @@ figcaption {
   transform-origin: left;
   transition: transform .28s var(--ease);
 }
-.main-nav > a:not(.header-cta):hover { color: var(--cream); }
+.main-nav > a:not(.header-cta):hover { color: var(--ink); }
 .main-nav > a:not(.header-cta):hover::after,
 .main-nav > a:not(.header-cta).is-active::after { transform: scaleX(1); }
+.site-header.is-scrolled .main-nav > a:not(.header-cta),
+.site-header:has(.nav-toggle.is-open) .main-nav > a:not(.header-cta) { color: rgba(247, 241, 230, .8); }
+.site-header.is-scrolled .main-nav > a:not(.header-cta):hover,
+.site-header:has(.nav-toggle.is-open) .main-nav > a:not(.header-cta):hover { color: var(--cream); }
 
 .header-cta {
   margin-left: .75rem;
   padding: 0.6rem 1.3rem;
   font-size: var(--fs-small);
-  background: var(--cream);
-  border-color: var(--cream);
-  color: var(--ink);
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--ivory);
 }
-.header-cta:hover { background: var(--butter); border-color: var(--butter); color: var(--ink); }
+.header-cta:hover { background: #3b2d24; border-color: #3b2d24; color: var(--ivory); }
+.site-header.is-scrolled .header-cta,
+.site-header:has(.nav-toggle.is-open) .header-cta { background: var(--cream); border-color: var(--cream); color: var(--ink); }
+.site-header.is-scrolled .header-cta:hover,
+.site-header:has(.nav-toggle.is-open) .header-cta:hover { background: var(--butter); border-color: var(--butter); color: var(--ink); }
 
 /* ---------------------------------------------------------
    5. Hero
@@ -315,9 +344,12 @@ figcaption {
 .hero {
   display: grid;
   align-content: center;
-  min-height: clamp(24rem, 52vw, 34rem);
-  padding-block: clamp(3.5rem, 7vw, 6rem);
+  min-height: calc(var(--header-h) + clamp(24rem, 52vw, 34rem));
+  margin-top: calc(-1 * var(--header-h));
+  padding-top: calc(var(--header-h) + clamp(3.5rem, 7vw, 6rem));
+  padding-bottom: clamp(3.5rem, 7vw, 6rem);
   background:
+    linear-gradient(to bottom, rgba(244, 238, 228, .92) 0%, rgba(244, 238, 228, .78) 9%, rgba(244, 238, 228, 0) 20%),
     linear-gradient(to bottom, rgba(244, 238, 228, 0) 58%, var(--ivory) 100%),
     linear-gradient(100deg, rgba(244, 238, 228, .62) 0%, rgba(244, 238, 228, .42) 40%, rgba(244, 238, 228, .16) 70%, rgba(244, 238, 228, 0) 100%),
     url("https://images.pexels.com/photos/13428021/pexels-photo-13428021.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1200&fit=crop") center / cover no-repeat;
@@ -361,6 +393,16 @@ figcaption {
 /* ---------------------------------------------------------
    7. Menu
    --------------------------------------------------------- */
+#menu { padding-bottom: 0; }
+.menu-panel {
+  margin-inline: calc(50% - 50vw);
+  padding-inline: calc(50vw - 50%);
+  padding-block: clamp(1.5rem, 3vw, 2.5rem);
+  background:
+    linear-gradient(rgba(244, 238, 228, .4), rgba(244, 238, 228, .4)),
+    url("img/menu_bg.png") top left / 600px 600px repeat,
+    var(--ivory);
+}
 .section-head {
   display: grid;
   grid-template-columns: 1.1fr .9fr;
@@ -437,8 +479,8 @@ figcaption {
   border: 0;
   background: none;
   font-size: 1rem;
-  font-weight: 500;
-  color: var(--muted);
+  font-weight: 600;
+  color: var(--ink-2);
   cursor: pointer;
   transition: color .22s var(--ease);
 }
@@ -467,11 +509,11 @@ figcaption {
   padding-bottom: 0.85rem;
   border-bottom: 1px solid var(--line-dark);
   font-family: var(--sans);
-  font-size: 0.875rem;
-  font-weight: 600;
+  font-size: 0.9375rem;
+  font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--ink-2);
+  color: var(--ink);
 }
 
 .menu-row {
@@ -503,15 +545,15 @@ figcaption {
 .menu-name {
   font-family: var(--serif);
   font-size: clamp(1.3rem, 1.7vw, 1.5rem);
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.15;
   transition: color .3s var(--ease);
 }
 .menu-row:hover .menu-name { color: var(--butter-2); }
-.menu-desc { font-size: 1rem; line-height: 1.55; color: var(--muted); }
+.menu-desc { font-size: 1.0625rem; line-height: 1.55; font-weight: 500; color: var(--ink); }
 .menu-price {
   font-size: 1.15rem;
-  font-weight: 500;
+  font-weight: 650;
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
   transition: color .3s var(--ease);
@@ -849,6 +891,7 @@ figcaption {
     padding: 0.95rem 0;
     border-bottom: 1px solid rgba(247, 241, 230, .12);
     font-size: 1.05rem;
+    color: rgba(247, 241, 230, .8);
   }
   .main-nav > a:not(.header-cta)::after { display: none; }
 
@@ -856,8 +899,10 @@ figcaption {
     justify-content: space-between;
     margin: 1rem 0 0;
     padding: 0.85rem 1.4rem;
+    background: var(--cream);
     border: 1px solid var(--cream);
     border-radius: var(--radius);
+    color: var(--ink);
   }
 
   /* Zig-zag rows stack: image always sits on top. */
